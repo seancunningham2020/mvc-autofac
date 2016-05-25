@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
+using static System.Char;
 
 namespace MvcAutofac.Services
 {
@@ -12,15 +10,15 @@ namespace MvcAutofac.Services
             var counter = 0;
             var result = 0;
 
-            foreach (char c in stringOfNumbers.Reverse())
+            foreach (var c in stringOfNumbers.Reverse())
             {
                 if (counter%2 == 0)
                 {
-                    result = result + (Convert.ToInt32(c)*2);
+                    result = result + ((int)GetNumericValue(c) * 2);
                 }
                 else
                 {
-                    result = result + Convert.ToInt32(c);
+                    result = result + (int)GetNumericValue(c);
                 }
 
                 counter++;
